@@ -1,5 +1,5 @@
 # Machine Learning - Estimación de precio de casa
-El objetivo es construir un modelo de predicción que, a partir de las características de una casa, pueda estimar disminuir el márgen de error que actualmente tiene en su media de 532k su precio en el mercado. Este modelo ayudará a la agencia a ofrecer estimaciones rápidas a sus clientes y a definir precios más competitivos basados en las características de cada propiedad.
+El objetivo es construir un modelo de predicción que, a partir de las características de una casa, pueda estimar disminuir el márgen de error que actualmente tiene en su media de 537k su precio en el mercado. Este modelo ayudará a la agencia a ofrecer estimaciones rápidas a sus clientes y a definir precios más competitivos basados en las características de cada propiedad.
 
 
 <img src="/src/img/Image_2.png"/>
