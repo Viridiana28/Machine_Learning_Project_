@@ -16,13 +16,6 @@ El objetivo es construir un modelo de predicción que, a partir de las caracter�
 - ***ML_Presentación***
 - ***ML_Modelo***
 
-### *Contenido notebook* 
-
----
-- [ 1. Modelo de Machine Learning:](Housing_Prices_ML_Proyecto#1)
-  [2. Presentación:](MACHINE LEARNING HOUSE PRICING#1)
----
-
 
 [Kaggle - data set Housing prices](https://www.kaggle.com/datasets/sukhmandeepsinghbrar/housing-price-dataset?select=Housing.csv)
 
