@@ -1,0 +1,62 @@
+
+
+def describe_df(df):
+
+    # Crear un diccionario para almacenar la información
+    resumen = {
+        'Tipo de Dato': df.dtypes,
+        '% Valores Nulos': df.isnull().mean() * 100,
+        'Valores Únicos': df.nunique(),
+        '% Cardinalidad': (df.nunique() / len(df)) * 100
+    }
+    
+    # Crear un DataFrame a partir del diccionario
+    resumen_df = pd.DataFrame(resumen)
+    
+    # Ajustar el formato de la salida (por ejemplo, redondear los porcentajes)
+    resumen_df['% Valores Nulos'] = resumen_df['% Valores Nulos'].round(2)
+    resumen_df['% Cardinalidad'] = resumen_df['% Cardinalidad'].round(2)
+    
+    return resumen_df.T
+
+
+def tipifica_variables(df, umbral_categoria=10, umbral_continua=0.90):
+
+     # Asegúrate de que umbral_categoria es un entero
+    try:
+        umbral_categoria = int(umbral_categoria)
+    except ValueError:
+        print(f"Error: umbral_categoria debe ser un número, se recibió: {umbral_categoria}")
+        return None
+
+    # Inicializar una lista para almacenar el resultado
+    sugerencias = []
+
+    # Recorrer cada columna del DataFrame
+    for col in df.columns:
+        # Calcular la cardinalidad (número de valores únicos)
+        cardinalidad = df[col].nunique()
+        # Calcular el porcentaje de cardinalidad
+        porcentaje_cardinalidad = (cardinalidad / len(df)) * 100
+        
+        # Determinar el tipo sugerido
+        if cardinalidad == 2:
+            tipo_sugerido = "Binaria"
+        elif cardinalidad < umbral_categoria:
+            tipo_sugerido = "Categórica"
+        elif porcentaje_cardinalidad >= umbral_continua:
+            tipo_sugerido = "Numerica Continua"
+        else:
+            tipo_sugerido = "Numerica Discreta"
+        
+        # Añadir la sugerencia a la lista
+        sugerencias.append({
+            'nombre_variable': col,
+            'tipo_sugerido': tipo_sugerido
+        })
+    
+    # Convertir la lista de sugerencias en un DataFrame
+    resultado_df = pd.DataFrame(sugerencias)
+    
+    return resultado_df
+
