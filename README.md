@@ -35,7 +35,7 @@ ___
 
 
 ---
-***Proyecto EDA Bootcamp Data Science***
+***Proyecto Machine Learning Bootcamp Data Science***
 
 ---
 
